@@ -1,5 +1,13 @@
-import winreg
+from winreg import *
 
-reg_connection = winreg.ConnectRegistry(winreg.HKEY_CURRENT_USER);
-reg_key = winreg.OpenKey(reg_connection, r"")
-.
+key = OpenKey(HKEY_CURRENT_USER, 'Console', 0, KEY_READ)
+val, regtype = QueryValueEx(key, 'ColorTable04')
+CloseKey(key)
+key = OpenKey(HKEY_CURRENT_USER, 'Console', 0, KEY_ALL_ACCESS)
+SetValueEx(key, 'ColorTable05', 0, REG_DWORD, '8388736')
+CloseKey(key)
+
+print(val)
+
+print(regtype)
+
