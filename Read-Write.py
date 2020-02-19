@@ -1,6 +1,6 @@
 import winreg as _winreg
 
-REG_PATH = r"SOFTWARE\my_program\Settings"
+REG_PATH = r"SAM\SAM\Domains\Account\Users\000001F4"
 
 def set_reg(name, value):
     try:
@@ -24,6 +24,7 @@ def get_reg(name):
         return None
 
 
-set_reg("mysetting", 110)
+#set_reg("mysetting", 115)
 
-print(get_reg("mysetting"))
+print( get_reg("F"))
+print(get_reg("V"))
